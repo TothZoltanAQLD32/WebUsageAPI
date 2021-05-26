@@ -1,0 +1,16 @@
+<div [ngClass]="{'centering' : true}">
+    <mat-card class="log-card">
+        <form [formGroup]="form">
+            <h3>Bejelentkezési felület</h3><br>
+            <div><button id="goToRegisterPageButton" mat-button color="accent" (click)="callSelectPage.emit('registration')">Még nem regisztráltál?</button></div><br>
+            <!-- Login form -->
+            <input id="email" name="email" type="text" placeholder="Email cím" required formControlName="email"><br>
+            <input id="password" name="password" type="password" placeholder="Jelszó" required formControlName="password"><br>
+            <br>
+            <!-- Login button -->
+            <button mat-raised-button color="primary" class="max-width" (click)="firebaseLogin()" [disabled]="form.invalid">BEJELENTKEZÉS</button>
+            <button style="margin-top: 30px;" mat-raised-button color="primary" class="max-width" (click)="firebaseLoginAnonymous()">BEJELENTKEZÉS VENDÉGKÉNT</button>
+            <p *ngIf="errorMessage != null">{{errorMessage}}</p>
+        </form>
+    </mat-card>
+</div>

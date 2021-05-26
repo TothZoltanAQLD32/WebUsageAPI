@@ -1,0 +1,33 @@
+<div [ngClass]="{'reportslist': true}">
+    <mat-card *ngIf="report">
+        <mat-card-header>
+            <mat-card-title>{{report.name}}</mat-card-title>
+            <mat-card-subtitle>{{report.effectiveDate}}</mat-card-subtitle>
+            <mat-card-subtitle>{{report.href}}</mat-card-subtitle>
+            <mat-card-subtitle>{{report.dataConsumption}} Gb elfogyasztva</mat-card-subtitle>
+            <mat-card-subtitle>Azonosító: {{report.id}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="report.imageResource" [alt]="report.name">
+        <mat-card-content>
+            <p>{{report.description}}</p>
+            <button *ngIf="!report.star" mat-button (click)="addFavorite(report)" class="starButton">
+                <mat-icon>star_rate</mat-icon>
+            </button>
+            <button *ngIf="report.star" mat-button (click)="addFavorite(report)" class="solidStarButton">
+                <mat-icon>star_rate</mat-icon>
+            </button>
+        </mat-card-content>
+        <button mat-button (click)="deleteRecord('usage_reports', report.docId)" class="deleteButton">TÖRLÉS</button>
+
+        <button mat-fab class="deleteButton" (click)="openDiag(report.docId, 
+        report.name, 
+        report.effectiveDate,
+        report.href,
+        report.dataConsumption,
+        report.id,
+        report.imageResource,
+        report.description
+        )"
+        >FRISSÍTÉS</button>
+    </mat-card>
+</div>

@@ -1,0 +1,35 @@
+<form [formGroup]="form">
+    <h3>Tevékenység felvétele/módosítása</h3>
+    <mat-form-field class="max-width">
+        <mat-label>Neve</mat-label>
+        <input type="text" matInput placeholder="Pl: letöltés" focus formControlName="name" required>
+    </mat-form-field>
+    <mat-form-field class="max-width">
+        <mat-label>Időpont</mat-label>
+        <input type="date" matInput placeholder="2021-05-25" focus formControlName="effectiveDate">
+    </mat-form-field>
+    <mat-form-field class="max-width">
+        <mat-label>Leírás</mat-label>
+        <input type="text" matInput placeholder="Ma nagyon sokat interneteztem" focus formControlName="description">
+    </mat-form-field>
+    <mat-form-field class="max-width">
+        <mat-label>Href</mat-label>
+        <input matInput placeholder="https://yoururl.com" focus formControlName="href">
+    </mat-form-field>
+    <mat-form-field class="max-width">
+        <mat-label>Adat fogyasztás</mat-label>
+        <input type="number" matInput placeholder="Pl: 25 (gigabájtban értendő egész szám)" focus formControlName="dataConsumption" required>
+    </mat-form-field>
+    <mat-form-field class="max-width">
+        <mat-label>Id/Tag</mat-label>
+        <input type="number" matInput placeholder="Pl: 223" focus formControlName="id" required>
+    </mat-form-field>
+    <mat-form-field class="max-width">
+        <mat-label>Kép</mat-label>
+        <input matInput placeholder="Adj meg egy URL-t" focus formControlName="imageResource">
+    </mat-form-field>
+    <div style="display: flex; justify-content: flex-end;">
+        <button mat-button (click)="dialogRef.close()" class="margin-right">MÉGSEM</button>
+        <button mat-button [mat-dialog-close]="form.value" [disabled]="form.invalid">FELVÉTEL/MÓDOSÍTÁS</button>
+    </div>
+</form>

@@ -1,0 +1,23 @@
+<div class="centering">
+    <mat-card class="log-card">
+        <form [formGroup]="form">
+            <h3>Regisztrációs felület</h3><br>
+            <div><button mat-button color="accent" (click)="callSelectPage.emit('login')">BEJELENTKEZÉS</button></div><br>
+            <!-- Register form -->
+            <input mat-input id="email" name="email" type="email" placeholder="Email cím" required formControlName="email"><br>
+            <input mat-input id="emailagain" name="emailagain" type="email" placeholder="Email cím megerősítése" required formControlName="emailAgain"><br>
+            <input mat-input id="password" name="password" type="password" placeholder="Jelszó" required formControlName="password"><br>
+            <input mat-input id="password" name="password" type="password" placeholder="Jelszó megerősítése" required formControlName="passwordAgain"><br>
+            <br>
+            <!-- Regist button -->
+            <button mat-raised-button color="primary" (click)="registerUser()" class="max-width" [disabled]="form.invalid">REGISZTRÁCIÓ</button>
+            <ng-container *ngIf="success; else elseTemplate">
+                <p>Sikerült a regisztráció. Jelentkezz be!</p>
+            </ng-container>
+            <ng-template #elseTemplate>
+                <p *ngIf="errorMessage != null">{{errorMessage}}</p>
+            </ng-template>
+        </form>
+    </mat-card>
+</div>
+

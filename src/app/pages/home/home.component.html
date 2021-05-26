@@ -1,0 +1,31 @@
+<span [ngSwitch]="page">
+    <span *ngSwitchCase="'home'">
+        <app-nav [categories] = "categories" (callSelectC)="onSelectCategory($event)" (callSelectPage)="onSelectPage($event)"></app-nav>
+      <span [ngSwitch]="category">
+        <span *ngSwitchCase="'reports'" class="container">
+          <usage-reports-card *ngFor="let item of usage_reports | async" [report]="item" appOnHover></usage-reports-card>
+          <button mat-fab class="action-btn" (click)="openDialog()">
+            <mat-icon>add</mat-icon>
+          </button>
+        </span>
+        <span *ngSwitchCase="'high-usages'" class="container">
+          <usage-reports-card *ngFor="let usage of high_usage_reports | async" [report]="usage"></usage-reports-card>
+        </span>
+        <span *ngSwitchCase="'favorite'" class="container">
+          <usage-reports-card *ngFor="let favorite of favorites | async" [report]="favorite"></usage-reports-card>
+        </span>
+        <span *ngSwitchDefault class="container">
+          <app-splash-screen (callSelectC)="onSelectCategory($event)"></app-splash-screen>
+        </span>
+      </span>
+    </span>
+  
+    <span *ngSwitchCase="'registration'">
+      <app-registration (callSelectPage)="page = $event"></app-registration>
+    </span>
+  
+    <span *ngSwitchDefault>
+      <app-login (callSelectPage)="page = $event"></app-login >
+    </span>
+  </span>
+  

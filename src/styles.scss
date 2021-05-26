@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { 
+    height: 100%;
+    background-color: black;
+    color: white;
+}
+body {
+    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+
+.max-width{
+    width: 100%;
+    background-color: palevioletred;
+}
+
+.centering{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: stretch;
+}
+
+.reg-card,
+.log-card{
+    width: 100vw;
+    height: 100vh;
+    background-color: gray;
+}
+
+@media (min-width: 768px){
+    .reg-card,
+    .log-card{
+        width: 100vw;
+        height: 100vh;
+        height: auto;
+    }
+}

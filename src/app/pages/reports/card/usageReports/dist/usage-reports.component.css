@@ -1,0 +1,58 @@
+img {
+  width: 250px;
+  height: 225px;
+  margin-left: -16px;
+}
+
+.deleteButton {
+  text-align: center;
+  color: white;
+  background-color: #07cece;
+  outline: none;
+  padding: 5px;
+  border: none;
+  font-size: large;
+  margin-left: 10px;
+}
+
+.deleteButton:hover {
+  opacity: 0.5;
+  background-color: aquamarine;
+  cursor: pointer;
+}
+
+.starButton {
+  outline: none;
+  border: none;
+}
+
+.solidStarButton {
+  outline: none;
+  border: none;
+  background-color: red;
+}
+
+.solidStarButton:hover {
+  cursor: pointer;
+  opacity: 0.5;
+  background-color: red;
+}
+
+.starButton:hover {
+  cursor: pointer;
+  opacity: 0.5;
+  background-color: aqua;
+}
+
+.rating {
+  width: 40px;
+  text-align: center;
+  color: white;
+}
+
+.reportslist {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 20px;
+  margin: 20px;
+}
